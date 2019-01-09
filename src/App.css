@@ -1,0 +1,487 @@
+body {
+  background-color: lightgray;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #465865;
+  font-size: 16px;
+  font-weight: 300;
+}
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: orange;
+  }
+
+  table tr td {
+    padding: 5px 8px;
+    line-height: 20px;
+    border-bottom-style: solid;
+    border-bottom-color: #efefef;
+    border-bottom-width: 1px;
+
+  }
+  table tr:last-of-type td{
+    line-height: 20px;
+    border-bottom: none;
+  }
+
+  .content-wrapper {
+    height: 602px;
+    display: flex;
+    padding-top: 55px;
+    justify-content: center;
+  }
+
+  .second-row {
+    display: flex;
+    justify-content: center;
+    margin: 45px 0 0 0;
+    border-radius: 5px;
+  }
+
+  /**************HEADER**************/
+
+  .header {
+    position: fixed;
+    display: flex;
+    font-size: 25px;
+    box-shadow: 0px 0px 30px 0px rgba(8, 8, 8, 0.1);
+    background:rgba(255,255,255,0.97);
+    height: 80px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    border-radius: 5px;
+  }
+
+  .logo {
+    align-self: center;
+    justify-content: center;
+    margin: 0 0 0 3%;
+  }
+
+  .site-title {
+    align-self: center;
+    padding: 0 0 0 30px;
+  }
+
+  .date {
+    flex: 1;
+    padding: 25px 260px;
+    font-size: 20px;
+  }
+
+  .header-icon {
+    height: 30px;
+    width: 30px;
+    align-self: center;
+    padding-right: 30px;
+  }
+
+  /**************SUMMARY BOXES**************/
+  .summary-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 225px;
+    padding-right: 25px;
+  }
+
+  .summary-box {
+    height: 130px;
+    width: 100%;
+    background-color:#ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  .summary-box .title {
+    width: 100%;
+    font-size:16px;
+    color: #465865;
+    display:table;
+    text-align: center;
+    padding-top: 35px;
+  }
+
+  .summary-box .value {
+    width: 100%;
+    text-align:center;
+    display:table;
+    font-size: 22px;
+    color: #465865;
+    padding-top: 18px;
+  }
+
+  /**************BREAKDOWN TABLE**************/
+  .breakdown-container {
+    flex: 1;
+    width: 600px;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .breakdown-table-title {
+    font-size: 16px;
+    text-align: center;
+    line-height: 65px;
+    padding: 5px 0px 4px 10px;
+    color:#465865;
+    border-bottom-style: solid;
+    border-bottom-color: #efefef;
+    border-bottom-width: 1px;
+  }
+
+  .energy-source-breakdown-table-header {
+    font-size: 16px;
+    line-height: 41px;
+    padding: 5px 0px 4px 10px;
+    margin: 0px;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+  }
+
+  .energy-source-breakdown-standard-cell {
+    height:104px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  td.energy-source-title {
+    font-size: 18px;
+    color: #465865;
+  }
+
+  td.energy-source-values {
+    width:95%;
+  }
+
+  td.energy-source-icon {
+    width: 50px;
+    padding-left: 30px;
+  }
+
+  td.energy-source-icon img {
+    width: 30px;
+  }
+
+  td.energy-source-disclosure img {
+    width: 15px;
+    height: 15px;
+    float: right;
+  }
+
+  .bar-background {
+    position:relative;
+    width: 100%;
+    top:0px;
+    height: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:#DBDBDB;
+    z-index:1;
+    border-radius: 5px;
+  }
+
+  .bar {
+    position:relative;
+    width: 5%;
+    top:0px;
+    height: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:#0a0a0a;
+    z-index:2;
+    border-radius: 5px;
+  }
+
+  .percentage {
+    float: right;
+  }
+
+  .biomass-bar {
+    background-color: #ffdb28;
+  }
+
+  .coal-bar {
+    background-color: #5E5A5F;
+  }
+
+  .hydro-bar {
+    background-color: #0B4F8E;
+  }
+
+  .gas-bar {
+    background-color: #CE632D;
+  }
+
+  .wind-bar {
+    background-color: #266B6B;
+  }
+
+  /**************PLANT BREAKDOWN**************/
+  .plant-container {
+  flex: 1;
+  width: 600px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .power-plant-breakdown-table-header {
+    height: 226px;
+    border-top-left-radius: 0px;
+  }
+
+  .power-plant-breakdown-table-div {
+    height: 220px;
+    background-color: #ffffff;
+    color: #465865;
+    overflow: auto;
+  }
+
+  .power-plant-breakdown-summary {
+    height:132px;
+    color:#ffffff;
+  }
+
+  .power-plant-breakdown-summary-title {
+    line-height: 50px;
+    padding: 5px 0px 5px 0px;
+    text-align:center;
+    text-transform: lowercase;
+    font-size: 30px;
+  }
+
+  .power-plant-breakdown-summary-bar-background {
+    width: 70%;
+    height: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color:#DBDBDB;
+    z-index:1;
+    border-radius: 5px;
+  }
+
+  .power-plant-breakdown-summary-bar {
+    position:relative;
+    width: 5%;
+    height: 10px;
+    background-color:#ffffff;
+    z-index:2;
+    border-radius: 5px;
+  }
+
+  .power-plant-breakdown-summary-values {
+    line-height: 40px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .power-plant-breakdown-table-div tbody{
+    display: block;
+    overflow: auto;
+    height: 200%;
+  }
+
+  .power-plant-breakdown-table-div td {
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .power-plant-breakdown-table-div td:first-of-type {
+    text-align: left;
+  }
+
+  th {
+    font-weight: 150;
+    width: 200px;
+    height:50px;
+    border-bottom-style: solid;
+    border-bottom-color: #efefef;
+    border-bottom-width: 1px;
+  }
+
+  thead tr{
+    display: block;
+  }
+
+   /**************MODAL**************/
+
+  .modal-body {
+    position: fixed;
+    background-color: #999;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    opacity: .9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-container {
+    position: fixed;
+    background-color: white;
+    min-height: 250px;
+    width: 600px;
+    z-index: 10001;
+    top: 200px;
+    left: 50%;
+    margin-left: -300px;
+    border-radius: 5px;
+  }
+
+  .modal-title {
+    padding: 0 50px 0 50px;
+  }
+
+  .modal-info {
+    padding: 0 50px 20px 50px;
+  }
+
+  .modal-footer {
+    padding: 0 50px 50px 50px;
+  }
+
+ /**************SUNBURST**************/
+
+  .sunburst-wrapper {
+    background-color: #ffffff;
+    align-content: center;
+    width: 625px;
+    height: 700px;
+    margin: 45px 0 0 0 ;
+    border-top-style: solid;
+    border-top-color: #efefef;
+    border-top-width: 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .sunburst-title {
+    color: #465865;
+    font-size: 16px;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    line-height: 65px;
+    padding: 5px 0px 4px 90px;
+    border-bottom-style: solid;
+    border-bottom-color: #efefef;
+    border-bottom-width: 1px;
+  }
+
+  .directions-button {
+    float: right;
+    padding-right: 15px;
+    padding-top: 15px;
+  }
+
+    /**************LEGEND**************/
+
+    .legend-container {
+      flex-direction: column;
+      width: 125px;
+      font-weight: 400;
+      margin-right: 30px;
+      background-color:#ffffff;
+      border-left-style: solid;
+      border-left-color: #efefef;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .legend-title {
+      color: #465865;
+      font-size: 16px;
+      font-weight: 300;
+      font-size: 16px;
+      text-align: center;
+      line-height: 65px;
+      padding: 5px 0px 4px 10px;
+    }
+
+    .classification {
+      font-size: 18px;
+      font-weight: 200;
+      color: #465865;
+      text-align: center;
+      line-height: 32px;
+      border-top-style: solid;
+      border-top-color: #efefef;
+      border-top-width: 1px;
+      }
+
+    .legend-img {
+      display: block;
+      align-content: center;
+      padding: 10px 0 20px 0;
+      margin-left: 30px;
+    }
+
+  /**************MAP**************/
+
+  .map-container {
+    background-color: #ffffff;
+    padding: 0 45px 0 45px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    font-weight: 400;
+    height: 700px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .map-title {
+    color: #465865;
+    font-size: 16px;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    line-height: 65px;
+    padding: 5px 0px 4px 10px;
+    border-bottom-style: solid;
+    border-bottom-color: #efefef;
+    border-bottom-width: 1px;
+  }
+
+  .map-content {
+    height: 625px;
+  }
+
+  .map-info {
+    padding: 20px 0 0 20px;
+    font-weight: 150;
+  }
+
+  /**************DISCLAIMER**************/
+  .disclaimer-box {
+    position: absolute;
+    justify-content: center;
+    box-shadow: 0px 0px 30px 0px rgba(8, 8, 8, 0.1);
+    background:rgba(255,255,255,0.97);
+    height: 100px;
+    padding: 0 20% 4% 20%;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+  }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PlantList from './PlantList';
+import {compare} from '../componentHelpers/sortByTng';
+
 const data = require("./plantinfo.json");
 
 class PlantBreakdown extends Component {
@@ -31,7 +33,7 @@ class PlantBreakdown extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                  {this.props.plantArr.map(data => {
+                  {this.props.plantArr.sort(compare).map(data => {
                     return (
                       <PlantList
                       Asset={data.Asset}

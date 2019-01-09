@@ -1,5 +1,4 @@
 export default (incomingData) => {
-  console.log(incomingData.Response)
   const outObj = {};
   incomingData.forEach((element) => {
     Object.entries(element).forEach((ele) => {
@@ -17,7 +16,6 @@ export default (incomingData) => {
   outObj.summary = getSumArr(outObj.summary);
   outObj.breakdown = totalToPercent(outObj.total);
   outObj.sunburstData = {"name": "Total", "children": siblings(outObj, combin, cogen, simp)};
-  console.log(outObj.sunburstData)
   return outObj;
   }
 

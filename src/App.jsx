@@ -34,17 +34,50 @@ class App extends Component {
   }
   // Fetch data from the backend served at localhost:5000
   async callApi() {
-    const response = await fetch("https://scoutdata.azurewebsites.net/api/HttpTrigger")
+    try {
+      const response = await fetch("https://scoutdata.azurewebsites.net/api/HttpTrigger")
       .then(function(response) {
         return response.json();
       })
       .then(function(myJson) {
+        console.log("cache data recived...")
         return showData(myJson);
       });
-      // console.log(response)
-    // const jsonResponse = await response.json();
     const body = sortIncoming(response);
     return body;
+    } catch (err) {
+      console.log('Failed fetch, moving to fallback 1')
+      try {
+        console.log('Attempting to refresh data pool from fallback one')
+        const response = await fetch("https://scoutdata.azurewebsites.net/api/callOnFail")
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(myJson) {
+          console.log('data pool successfully refreshed')
+          return showData(myJson);
+        });
+      const body = sortIncoming(response);
+      return body;
+      } catch (err) {
+        console.log('Failed fetch, moving to fallback 2')
+        try {
+          console.log('Attempting refresh data from direct scrape call')
+          const response = await fetch("https://scouterscrape.azurewebsites.net/api/RequestScrapeData?code=Fv2vV9aGCvlI2FK9/Dtv5CUPJlYUlrKGvYddEABqO/2baT5Eie7w3w==")
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(myJson) {
+            console.log('direct call refresh successful')
+            return showData(myJson);
+          });
+        const body = sortIncoming(response);
+        return body;
+        } catch (err) {
+          console.log('Failed fetch, moving to fallback 2')
+        }
+      } 
+    } 
   }
 
   handleClick = event => {

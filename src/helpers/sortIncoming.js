@@ -8,11 +8,17 @@ export default (incomingData) => {
   const combin = outObj.combined;
   const cogen = outObj.cogeneration;
   const simp = outObj.simple;
-  const gasObj = {...combin, ...cogen, ...simp};
+  const gasObj = {combin, cogen, simp};
+
   outObj.gas = [];
-  Object.values(gasObj).forEach((ele) => {
-    outObj.gas.push(ele);
-  });
+
+  Object.values(gasObj).forEach(ele => {
+    ele.forEach(element => {
+      outObj.gas.push(element)
+    })
+  })
+
+  console.log(outObj.gas)
   outObj.summary = getSumArr(outObj.summary);
   outObj.breakdown = totalToPercent(outObj.total);
   outObj.sunburstData = {"name": "Total", "children": siblings(outObj, combin, cogen, simp)};

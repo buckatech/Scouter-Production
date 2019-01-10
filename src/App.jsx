@@ -44,6 +44,7 @@ class App extends Component {
         return showData(myJson);
       });
     const body = sortIncoming(response);
+    console.log(body)
     return body;
     } catch (err) {
       console.log('Failed fetch, moving to fallback 1')
